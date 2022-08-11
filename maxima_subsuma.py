@@ -1,5 +1,8 @@
-def maxima_subsuma():
-  data = [4, -3, 5, -2, -1, 2, 7, -2]
+from time import perf_counter
+import random
+
+
+def maxima_subsuma(data):
   cantidad = len(data)
   suma_actual = 0
   maxima_suma = 0
@@ -13,22 +16,20 @@ def maxima_subsuma():
   
   print(maxima_suma)
    
-def maxima_subsuma_dos():
-  data = [4, -3, 5, -2, -1, 2, 7, -2]
+def maxima_subsuma_dos(data):
   cantidad = len(data)
   suma_actual = 0
   maxima_suma = 0
   for n in range(cantidad):
       suma_actual = 0
-      for m in range(n):
+      for m in range(n,cantidad):
           suma_actual += data[m]
           if(suma_actual > maxima_suma):
              maxima_suma = suma_actual
 
   print(maxima_suma)
 
-def maxima_subsuma_tres():
-  data = [4, -3, 5, -2, -1, 2, 7, -2]
+def maxima_subsuma_tres(data):
   cantidad = len(data)
   suma_actual = 0
   maxima_suma = 0
@@ -41,6 +42,22 @@ def maxima_subsuma_tres():
   
   print(maxima_suma)
 
-maxima_subsuma()
-maxima_subsuma_dos()
-maxima_subsuma_tres()
+
+def llenado():
+    limit = 10000
+    data = []
+    random_number = 0
+    for _ in range(limit):
+        random_number = random.randint(-20,20)
+        data.append(random_number)
+    
+    return data
+
+data = llenado()
+
+maxima_subsuma(data)
+maxima_subsuma_dos(data)
+maxima_subsuma_tres(data)
+
+
+
