@@ -45,7 +45,7 @@ def maxima_subsuma_tres(data):
 
 
 def llenado():
-    limit = 1000
+    limit = 10000
     data = []
     random_number = 0
     for _ in range(limit):
