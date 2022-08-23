@@ -1,0 +1,46 @@
+import random
+
+def insertionSort(arr):
+    n = len(arr)
+    for i in range(n):
+        key = arr[i]
+        j = i - 1
+        while( j >= 0 and arr[j] > key):
+            arr[j + 1] = arr[j]
+            j = j - 1
+        arr[j + 1] = key
+    
+    return arr
+
+
+def bucketSort(x):
+    arr = []
+    slot_num = 10 # 10 means 10 slots
+    for i in range(slot_num):
+        arr.append([])
+    for j in x:
+        index_b = int(slot_num * j)
+        arr[index_b].append(j)
+    for i in range(slot_num):
+        arr[i] = insertionSort(arr[i])
+    k = 0
+    for i in range(slot_num):
+        for j in range(len(arr[i])):
+            x[k] = arr[i][j]
+            k += 1
+    print(x)
+
+
+def llenado():
+    limite = 10
+    data = []
+    random_number = 0
+    for _ in range(limite):
+        random_number = random.random()
+        data.append(random_number)
+    
+    return data
+
+
+arr = llenado()
+bucketSort(arr)
