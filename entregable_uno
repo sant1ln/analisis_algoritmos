@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from time import perf_counter_ns
 import random
 
@@ -41,10 +42,18 @@ def llenado(limite = 10):
     
     return data
 
+
+def graficar(datos,tiempos):
+    x = datos
+    y = tiempos
+    
+    plt.plot(x,y)
+    
+
 def obtenerTiempos():
   data = llenado()
   tiempos = []
-  datos = [100,1000,10000]
+  datos = [10,100,200,300,400,500,600,700,800,900,1000]
   for i in datos:
     inicio_timer = perf_counter_ns()
     bucketSort(data) ##Aquí se llama al metodo de ordenado.
@@ -55,6 +64,7 @@ def obtenerTiempos():
 
   print('Data >', datos)  
   print('Tiempos >', tiempos)
+  graficar(datos,tiempos)
 
 
 
