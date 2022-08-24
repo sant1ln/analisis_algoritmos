@@ -1,3 +1,4 @@
+from time import perf_counter_ns
 import random
 
 def insertionSort(arr):
@@ -28,11 +29,10 @@ def bucketSort(x):
         for j in range(len(arr[i])):
             x[k] = arr[i][j]
             k += 1
-    print(x)
+    return x
 
 
-def llenado():
-    limite = 10
+def llenado(limite = 10):
     data = []
     random_number = 0
     for _ in range(limite):
@@ -41,6 +41,22 @@ def llenado():
     
     return data
 
+def obtenerTiempos():
+  data = llenado()
+  tiempos = []
+  datos = [100,1000,10000]
+  for i in datos:
+    inicio_timer = perf_counter_ns()
+    bucketSort(data) ##Aquí se llama al metodo de ordenado.
+    final_timer = perf_counter_ns()
+    timpo_total = round(final_timer - inicio_timer)
+    tiempos.append(timpo_total)
+    data = llenado(i)
 
-arr = llenado()
-bucketSort(arr)
+  print('Data >', datos)  
+  print('Tiempos >', tiempos)
+
+
+
+
+obtenerTiempos()
