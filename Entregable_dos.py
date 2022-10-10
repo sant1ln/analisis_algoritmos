@@ -63,7 +63,6 @@ def printList(arr):
     print()
 
 
-# Driver Code
 if __name__ == '__main__':
     data = llenado()
     tiempos = []
