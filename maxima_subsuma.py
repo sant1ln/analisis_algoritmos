@@ -1,8 +1,5 @@
-from time import perf_counter_ns
-import random
-
-
-def maxima_subsuma(data):
+def maxima_subsuma():
+  data = [4, -3, 5, -2, -1, 2, 7, -2]
   cantidad = len(data)
   suma_actual = 0
   maxima_suma = 0
